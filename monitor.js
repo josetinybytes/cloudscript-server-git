@@ -45,7 +45,7 @@ function startServer() {
 
     compiler.compile(directory);
 
-    let port = argv.p ?? argv.port ?? 8181;
+    let port = argv.p ?? argv.port ?? 8080;
     child = spawn('node', [path.join(__dirname, 'server.js'), port, directory], {
         detached: true,
         stdio: 'pipe'
