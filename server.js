@@ -23,12 +23,18 @@ catch (e) {
     console.error(e);
     process.exit();
 }
-
+__convertAndLogTrace = function (data) {
+    let dummy = new Error("dummy");
+    compiler.transformErrorStack(dummy, directory);
+    data.stack = dummy.stack;
+    console.log(data);
+}
 async function executeCloudScript(req, res) {
     try {
-        global.currentPlayerId = req.body.PlayFabId ?? req.headers['x-authorization'].split('--')[0];//doing this is faster than validating the ticket with the playfab api :P, it can fail obviously
-        global.apiRequestCount = 0;
-        global.httpRequestCount = 0;
+        currentPlayerId = req.body.PlayFabId ?? req.headers['x-authorization'].split('--')[0];//doing this is faster than validating the ticket with the playfab api :P, it can fail obviously
+        __playfab_internal.apiRequestCount = 0;
+        __playfab_internal.httpRequestCount = 0;
+        __playfab_internal.logs = [];
         let startTime = Date.now();
         let result = cloudscript[req.body.FunctionName](req.body.FunctionParameter);
         return res.json({
@@ -38,9 +44,10 @@ async function executeCloudScript(req, res) {
                 FunctionName: req.body.FunctionName,
                 Revision: 0,
                 FunctionResult: result,
-                APIRequestsIssued: global.apiRequestCount,
-                HttpRequestsIssued: global.httpRequestCount,
-                ExecutionTimeSeconds: (Date.now() - startTime) * 0.001
+                APIRequestsIssued: __playfab_internal.apiRequestCount,
+                HttpRequestsIssued: __playfab_internal.httpRequestCount,
+                ExecutionTimeSeconds: (Date.now() - startTime) * 0.001,
+                Logs: __playfab_internal.logs
             }
         });
     }

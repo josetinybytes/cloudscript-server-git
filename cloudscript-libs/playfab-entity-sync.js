@@ -10,7 +10,7 @@ class PlayFabApiError extends Error {
 }
 
 exports.GetObjects = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     playfabData.GetObjects(request, (err, data) => {
@@ -26,7 +26,7 @@ exports.GetObjects = function (request) {
     return response;
 };
 exports.SetObjects = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     playfabData.SetObjects(request, (err, data) => {

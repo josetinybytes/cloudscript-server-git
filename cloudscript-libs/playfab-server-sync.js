@@ -8,7 +8,7 @@ class PlayFabApiError extends Error {
     }
 }
 exports.AddCharacterVirtualCurrency = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.AddCharacterVirtualCurrency(request, (err, data) => {
@@ -25,7 +25,7 @@ exports.AddCharacterVirtualCurrency = function (request) {
 };
 
 exports.AddCharacterVirtualCurrency = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.AddCharacterVirtualCurrency(request, (err, data) => {
@@ -42,7 +42,7 @@ exports.AddCharacterVirtualCurrency = function (request) {
 };
 
 exports.AddFriend = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.AddFriend(request, (err, data) => {
@@ -59,7 +59,7 @@ exports.AddFriend = function (request) {
 };
 
 exports.AddGenericID = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.AddGenericID(request, (err, data) => {
@@ -76,7 +76,7 @@ exports.AddGenericID = function (request) {
 };
 
 exports.AddPlayerTag = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.AddPlayerTag(request, (err, data) => {
@@ -93,7 +93,7 @@ exports.AddPlayerTag = function (request) {
 };
 
 exports.AddSharedGroupMembers = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.AddSharedGroupMembers(request, (err, data) => {
@@ -110,7 +110,7 @@ exports.AddSharedGroupMembers = function (request) {
 };
 
 exports.AddUserVirtualCurrency = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.AddUserVirtualCurrency(request, (err, data) => {
@@ -127,7 +127,7 @@ exports.AddUserVirtualCurrency = function (request) {
 };
 
 exports.AuthenticateSessionTicket = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.AuthenticateSessionTicket(request, (err, data) => {
@@ -144,7 +144,7 @@ exports.AuthenticateSessionTicket = function (request) {
 };
 
 exports.AwardSteamAchievement = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.AwardSteamAchievement(request, (err, data) => {
@@ -161,7 +161,7 @@ exports.AwardSteamAchievement = function (request) {
 };
 
 exports.BanUsers = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.BanUsers(request, (err, data) => {
@@ -178,7 +178,7 @@ exports.BanUsers = function (request) {
 };
 
 exports.ConsumeItem = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.ConsumeItem(request, (err, data) => {
@@ -195,7 +195,7 @@ exports.ConsumeItem = function (request) {
 };
 
 exports.CreateSharedGroup = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.CreateSharedGroup(request, (err, data) => {
@@ -212,7 +212,7 @@ exports.CreateSharedGroup = function (request) {
 };
 
 exports.DeleteCharacterFromUser = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.DeleteCharacterFromUser(request, (err, data) => {
@@ -229,7 +229,7 @@ exports.DeleteCharacterFromUser = function (request) {
 };
 
 exports.DeletePlayer = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.DeletePlayer(request, (err, data) => {
@@ -246,7 +246,7 @@ exports.DeletePlayer = function (request) {
 };
 
 exports.DeletePushNotificationTemplate = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.DeletePushNotificationTemplate(request, (err, data) => {
@@ -263,7 +263,7 @@ exports.DeletePushNotificationTemplate = function (request) {
 };
 
 exports.DeleteSharedGroup = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.DeleteSharedGroup(request, (err, data) => {
@@ -280,7 +280,7 @@ exports.DeleteSharedGroup = function (request) {
 };
 
 exports.DeregisterGame = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.DeregisterGame(request, (err, data) => {
@@ -297,7 +297,7 @@ exports.DeregisterGame = function (request) {
 };
 
 exports.EvaluateRandomResultTable = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.EvaluateRandomResultTable(request, (err, data) => {
@@ -314,7 +314,7 @@ exports.EvaluateRandomResultTable = function (request) {
 };
 
 exports.ExecuteCloudScript = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.ExecuteCloudScript(request, (err, data) => {
@@ -331,7 +331,7 @@ exports.ExecuteCloudScript = function (request) {
 };
 
 exports.GetAllSegments = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetAllSegments(request, (err, data) => {
@@ -348,7 +348,7 @@ exports.GetAllSegments = function (request) {
 };
 
 exports.GetAllUsersCharacters = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetAllUsersCharacters(request, (err, data) => {
@@ -365,7 +365,7 @@ exports.GetAllUsersCharacters = function (request) {
 };
 
 exports.GetCatalogItems = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetCatalogItems(request, (err, data) => {
@@ -382,7 +382,7 @@ exports.GetCatalogItems = function (request) {
 };
 
 exports.GetCharacterData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetCharacterData(request, (err, data) => {
@@ -399,7 +399,7 @@ exports.GetCharacterData = function (request) {
 };
 
 exports.GetCharacterInternalData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetCharacterInternalData(request, (err, data) => {
@@ -416,7 +416,7 @@ exports.GetCharacterInternalData = function (request) {
 };
 
 exports.GetCharacterInventory = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetCharacterInventory(request, (err, data) => {
@@ -433,7 +433,7 @@ exports.GetCharacterInventory = function (request) {
 };
 
 exports.GetCharacterLeaderboard = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetCharacterLeaderboard(request, (err, data) => {
@@ -450,7 +450,7 @@ exports.GetCharacterLeaderboard = function (request) {
 };
 
 exports.GetCharacterReadOnlyData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetCharacterReadOnlyData(request, (err, data) => {
@@ -467,7 +467,7 @@ exports.GetCharacterReadOnlyData = function (request) {
 };
 
 exports.GetCharacterStatistics = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetCharacterStatistics(request, (err, data) => {
@@ -484,7 +484,7 @@ exports.GetCharacterStatistics = function (request) {
 };
 
 exports.GetContentDownloadUrl = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetContentDownloadUrl(request, (err, data) => {
@@ -501,7 +501,7 @@ exports.GetContentDownloadUrl = function (request) {
 };
 
 exports.GetFriendLeaderboard = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetFriendLeaderboard(request, (err, data) => {
@@ -518,7 +518,7 @@ exports.GetFriendLeaderboard = function (request) {
 };
 
 exports.GetFriendsList = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetFriendsList(request, (err, data) => {
@@ -535,7 +535,7 @@ exports.GetFriendsList = function (request) {
 };
 
 exports.GetLeaderboard = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetLeaderboard(request, (err, data) => {
@@ -552,7 +552,7 @@ exports.GetLeaderboard = function (request) {
 };
 
 exports.GetLeaderboardAroundCharacter = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetLeaderboardAroundCharacter(request, (err, data) => {
@@ -569,7 +569,7 @@ exports.GetLeaderboardAroundCharacter = function (request) {
 };
 
 exports.GetLeaderboardAroundUser = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetLeaderboardAroundUser(request, (err, data) => {
@@ -586,7 +586,7 @@ exports.GetLeaderboardAroundUser = function (request) {
 };
 
 exports.GetLeaderboardForUserCharacters = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetLeaderboardForUserCharacters(request, (err, data) => {
@@ -603,7 +603,7 @@ exports.GetLeaderboardForUserCharacters = function (request) {
 };
 
 exports.GetPlayerCombinedInfo = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayerCombinedInfo(request, (err, data) => {
@@ -620,7 +620,7 @@ exports.GetPlayerCombinedInfo = function (request) {
 };
 
 exports.GetPlayerProfile = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayerProfile(request, (err, data) => {
@@ -637,7 +637,7 @@ exports.GetPlayerProfile = function (request) {
 };
 
 exports.GetPlayerSegments = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayerSegments(request, (err, data) => {
@@ -654,7 +654,7 @@ exports.GetPlayerSegments = function (request) {
 };
 
 exports.GetPlayersInSegment = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayersInSegment(request, (err, data) => {
@@ -671,7 +671,7 @@ exports.GetPlayersInSegment = function (request) {
 };
 
 exports.GetPlayerStatistics = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayerStatistics(request, (err, data) => {
@@ -688,7 +688,7 @@ exports.GetPlayerStatistics = function (request) {
 };
 
 exports.GetUserStatistics = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayerStatistics(request, (err, data) => {
@@ -710,7 +710,7 @@ exports.GetUserStatistics = function (request) {
 };
 
 exports.GetPlayerStatisticVersions = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayerStatisticVersions(request, (err, data) => {
@@ -727,7 +727,7 @@ exports.GetPlayerStatisticVersions = function (request) {
 };
 
 exports.GetPlayerTags = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayerTags(request, (err, data) => {
@@ -744,7 +744,7 @@ exports.GetPlayerTags = function (request) {
 };
 
 exports.GetPlayFabIDsFromFacebookIDs = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayFabIDsFromFacebookIDs(request, (err, data) => {
@@ -761,7 +761,7 @@ exports.GetPlayFabIDsFromFacebookIDs = function (request) {
 };
 
 exports.GetPlayFabIDsFromFacebookInstantGamesIds = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayFabIDsFromFacebookInstantGamesIds(request, (err, data) => {
@@ -778,7 +778,7 @@ exports.GetPlayFabIDsFromFacebookInstantGamesIds = function (request) {
 };
 
 exports.GetPlayFabIDsFromGenericIDs = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayFabIDsFromGenericIDs(request, (err, data) => {
@@ -795,7 +795,7 @@ exports.GetPlayFabIDsFromGenericIDs = function (request) {
 };
 
 exports.GetPlayFabIDsFromNintendoSwitchDeviceIds = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayFabIDsFromNintendoSwitchDeviceIds(request, (err, data) => {
@@ -812,7 +812,7 @@ exports.GetPlayFabIDsFromNintendoSwitchDeviceIds = function (request) {
 };
 
 exports.GetPlayFabIDsFromPSNAccountIDs = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayFabIDsFromPSNAccountIDs(request, (err, data) => {
@@ -829,7 +829,7 @@ exports.GetPlayFabIDsFromPSNAccountIDs = function (request) {
 };
 
 exports.GetPlayFabIDsFromSteamIDs = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayFabIDsFromSteamIDs(request, (err, data) => {
@@ -846,7 +846,7 @@ exports.GetPlayFabIDsFromSteamIDs = function (request) {
 };
 
 exports.GetPlayFabIDsFromXboxLiveIDs = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPlayFabIDsFromXboxLiveIDs(request, (err, data) => {
@@ -863,7 +863,7 @@ exports.GetPlayFabIDsFromXboxLiveIDs = function (request) {
 };
 
 exports.GetPublisherData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetPublisherData(request, (err, data) => {
@@ -880,7 +880,7 @@ exports.GetPublisherData = function (request) {
 };
 
 exports.GetRandomResultTables = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetRandomResultTables(request, (err, data) => {
@@ -897,7 +897,7 @@ exports.GetRandomResultTables = function (request) {
 };
 
 exports.GetServerCustomIDsFromPlayFabIDs = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetServerCustomIDsFromPlayFabIDs(request, (err, data) => {
@@ -914,7 +914,7 @@ exports.GetServerCustomIDsFromPlayFabIDs = function (request) {
 };
 
 exports.GetSharedGroupData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetSharedGroupData(request, (err, data) => {
@@ -931,7 +931,7 @@ exports.GetSharedGroupData = function (request) {
 };
 
 exports.GetStoreItems = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetStoreItems(request, (err, data) => {
@@ -948,7 +948,7 @@ exports.GetStoreItems = function (request) {
 };
 
 exports.GetTime = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetTime(request, (err, data) => {
@@ -965,7 +965,7 @@ exports.GetTime = function (request) {
 };
 
 exports.GetTitleData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetTitleData(request, (err, data) => {
@@ -982,7 +982,7 @@ exports.GetTitleData = function (request) {
 };
 
 exports.GetTitleInternalData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetTitleInternalData(request, (err, data) => {
@@ -999,7 +999,7 @@ exports.GetTitleInternalData = function (request) {
 };
 
 exports.GetTitleNews = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetTitleNews(request, (err, data) => {
@@ -1016,7 +1016,7 @@ exports.GetTitleNews = function (request) {
 };
 
 exports.GetUserAccountInfo = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetUserAccountInfo(request, (err, data) => {
@@ -1033,7 +1033,7 @@ exports.GetUserAccountInfo = function (request) {
 };
 
 exports.GetUserBans = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetUserBans(request, (err, data) => {
@@ -1050,7 +1050,7 @@ exports.GetUserBans = function (request) {
 };
 
 exports.GetUserData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetUserData(request, (err, data) => {
@@ -1067,7 +1067,7 @@ exports.GetUserData = function (request) {
 };
 
 exports.GetUserInternalData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetUserInternalData(request, (err, data) => {
@@ -1084,7 +1084,7 @@ exports.GetUserInternalData = function (request) {
 };
 
 exports.GetUserInventory = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetUserInventory(request, (err, data) => {
@@ -1101,7 +1101,7 @@ exports.GetUserInventory = function (request) {
 };
 
 exports.GetUserPublisherData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetUserPublisherData(request, (err, data) => {
@@ -1118,7 +1118,7 @@ exports.GetUserPublisherData = function (request) {
 };
 
 exports.GetUserPublisherInternalData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetUserPublisherInternalData(request, (err, data) => {
@@ -1135,7 +1135,7 @@ exports.GetUserPublisherInternalData = function (request) {
 };
 
 exports.GetUserPublisherReadOnlyData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetUserPublisherReadOnlyData(request, (err, data) => {
@@ -1152,7 +1152,7 @@ exports.GetUserPublisherReadOnlyData = function (request) {
 };
 
 exports.GetUserReadOnlyData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GetUserReadOnlyData(request, (err, data) => {
@@ -1169,7 +1169,7 @@ exports.GetUserReadOnlyData = function (request) {
 };
 
 exports.GrantCharacterToUser = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GrantCharacterToUser(request, (err, data) => {
@@ -1186,7 +1186,7 @@ exports.GrantCharacterToUser = function (request) {
 };
 
 exports.GrantItemsToCharacter = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GrantItemsToCharacter(request, (err, data) => {
@@ -1203,7 +1203,7 @@ exports.GrantItemsToCharacter = function (request) {
 };
 
 exports.GrantItemsToUser = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GrantItemsToUser(request, (err, data) => {
@@ -1220,7 +1220,7 @@ exports.GrantItemsToUser = function (request) {
 };
 
 exports.GrantItemsToUsers = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.GrantItemsToUsers(request, (err, data) => {
@@ -1237,7 +1237,7 @@ exports.GrantItemsToUsers = function (request) {
 };
 
 exports.LinkPSNAccount = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.LinkPSNAccount(request, (err, data) => {
@@ -1254,7 +1254,7 @@ exports.LinkPSNAccount = function (request) {
 };
 
 exports.LinkServerCustomId = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.LinkServerCustomId(request, (err, data) => {
@@ -1271,7 +1271,7 @@ exports.LinkServerCustomId = function (request) {
 };
 
 exports.LinkXboxAccount = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.LinkXboxAccount(request, (err, data) => {
@@ -1288,7 +1288,7 @@ exports.LinkXboxAccount = function (request) {
 };
 
 exports.LoginWithServerCustomId = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.LoginWithServerCustomId(request, (err, data) => {
@@ -1305,7 +1305,7 @@ exports.LoginWithServerCustomId = function (request) {
 };
 
 exports.LoginWithSteamId = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.LoginWithSteamId(request, (err, data) => {
@@ -1322,7 +1322,7 @@ exports.LoginWithSteamId = function (request) {
 };
 
 exports.LoginWithXbox = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.LoginWithXbox(request, (err, data) => {
@@ -1339,7 +1339,7 @@ exports.LoginWithXbox = function (request) {
 };
 
 exports.LoginWithXboxId = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.LoginWithXboxId(request, (err, data) => {
@@ -1356,7 +1356,7 @@ exports.LoginWithXboxId = function (request) {
 };
 
 exports.ModifyItemUses = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.ModifyItemUses(request, (err, data) => {
@@ -1373,7 +1373,7 @@ exports.ModifyItemUses = function (request) {
 };
 
 exports.MoveItemToCharacterFromCharacter = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.MoveItemToCharacterFromCharacter(request, (err, data) => {
@@ -1390,7 +1390,7 @@ exports.MoveItemToCharacterFromCharacter = function (request) {
 };
 
 exports.MoveItemToCharacterFromUser = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.MoveItemToCharacterFromUser(request, (err, data) => {
@@ -1407,7 +1407,7 @@ exports.MoveItemToCharacterFromUser = function (request) {
 };
 
 exports.MoveItemToUserFromCharacter = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.MoveItemToUserFromCharacter(request, (err, data) => {
@@ -1424,7 +1424,7 @@ exports.MoveItemToUserFromCharacter = function (request) {
 };
 
 exports.NotifyMatchmakerPlayerLeft = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.NotifyMatchmakerPlayerLeft(request, (err, data) => {
@@ -1441,7 +1441,7 @@ exports.NotifyMatchmakerPlayerLeft = function (request) {
 };
 
 exports.RedeemCoupon = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.RedeemCoupon(request, (err, data) => {
@@ -1458,7 +1458,7 @@ exports.RedeemCoupon = function (request) {
 };
 
 exports.RedeemMatchmakerTicket = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.RedeemMatchmakerTicket(request, (err, data) => {
@@ -1475,7 +1475,7 @@ exports.RedeemMatchmakerTicket = function (request) {
 };
 
 exports.RefreshGameServerInstanceHeartbeat = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.RefreshGameServerInstanceHeartbeat(request, (err, data) => {
@@ -1495,7 +1495,7 @@ exports.RefreshGameServerInstanceHeartbeat = function (request) {
  * @deprecated Do not use
  */
 exports.RegisterGame = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.RegisterGame(request, (err, data) => {
@@ -1512,7 +1512,7 @@ exports.RegisterGame = function (request) {
 };
 
 exports.RemoveFriend = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.RemoveFriend(request, (err, data) => {
@@ -1529,7 +1529,7 @@ exports.RemoveFriend = function (request) {
 };
 
 exports.RemoveGenericID = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.RemoveGenericID(request, (err, data) => {
@@ -1546,7 +1546,7 @@ exports.RemoveGenericID = function (request) {
 };
 
 exports.RemovePlayerTag = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.RemovePlayerTag(request, (err, data) => {
@@ -1563,7 +1563,7 @@ exports.RemovePlayerTag = function (request) {
 };
 
 exports.RemoveSharedGroupMembers = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.RemoveSharedGroupMembers(request, (err, data) => {
@@ -1580,7 +1580,7 @@ exports.RemoveSharedGroupMembers = function (request) {
 };
 
 exports.ReportPlayer = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.ReportPlayer(request, (err, data) => {
@@ -1597,7 +1597,7 @@ exports.ReportPlayer = function (request) {
 };
 
 exports.RevokeAllBansForUser = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.RevokeAllBansForUser(request, (err, data) => {
@@ -1614,7 +1614,7 @@ exports.RevokeAllBansForUser = function (request) {
 };
 
 exports.RevokeBans = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.RevokeBans(request, (err, data) => {
@@ -1631,7 +1631,7 @@ exports.RevokeBans = function (request) {
 };
 
 exports.RevokeInventoryItem = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.RevokeInventoryItem(request, (err, data) => {
@@ -1648,7 +1648,7 @@ exports.RevokeInventoryItem = function (request) {
 };
 
 exports.RevokeInventoryItems = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.RevokeInventoryItems(request, (err, data) => {
@@ -1665,7 +1665,7 @@ exports.RevokeInventoryItems = function (request) {
 };
 
 exports.SavePushNotificationTemplate = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SavePushNotificationTemplate(request, (err, data) => {
@@ -1682,7 +1682,7 @@ exports.SavePushNotificationTemplate = function (request) {
 };
 
 exports.SendCustomAccountRecoveryEmail = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SendCustomAccountRecoveryEmail(request, (err, data) => {
@@ -1699,7 +1699,7 @@ exports.SendCustomAccountRecoveryEmail = function (request) {
 };
 
 exports.SendEmailFromTemplate = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SendEmailFromTemplate(request, (err, data) => {
@@ -1716,7 +1716,7 @@ exports.SendEmailFromTemplate = function (request) {
 };
 
 exports.SendPushNotification = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SendPushNotification(request, (err, data) => {
@@ -1733,7 +1733,7 @@ exports.SendPushNotification = function (request) {
 };
 
 exports.SendPushNotificationFromTemplate = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SendPushNotificationFromTemplate(request, (err, data) => {
@@ -1750,7 +1750,7 @@ exports.SendPushNotificationFromTemplate = function (request) {
 };
 
 exports.SetFriendTags = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SetFriendTags(request, (err, data) => {
@@ -1767,7 +1767,7 @@ exports.SetFriendTags = function (request) {
 };
 
 exports.SetGameServerInstanceData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SetGameServerInstanceData(request, (err, data) => {
@@ -1784,7 +1784,7 @@ exports.SetGameServerInstanceData = function (request) {
 };
 
 exports.SetGameServerInstanceState = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SetGameServerInstanceState(request, (err, data) => {
@@ -1801,7 +1801,7 @@ exports.SetGameServerInstanceState = function (request) {
 };
 
 exports.SetGameServerInstanceTags = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SetGameServerInstanceTags(request, (err, data) => {
@@ -1818,7 +1818,7 @@ exports.SetGameServerInstanceTags = function (request) {
 };
 
 exports.SetPlayerSecret = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SetPlayerSecret(request, (err, data) => {
@@ -1835,7 +1835,7 @@ exports.SetPlayerSecret = function (request) {
 };
 
 exports.SetPublisherData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SetPublisherData(request, (err, data) => {
@@ -1852,7 +1852,7 @@ exports.SetPublisherData = function (request) {
 };
 
 exports.SetTitleData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SetTitleData(request, (err, data) => {
@@ -1869,7 +1869,7 @@ exports.SetTitleData = function (request) {
 };
 
 exports.SetTitleInternalData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SetTitleInternalData(request, (err, data) => {
@@ -1886,7 +1886,7 @@ exports.SetTitleInternalData = function (request) {
 };
 
 exports.SubtractCharacterVirtualCurrency = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SubtractCharacterVirtualCurrency(request, (err, data) => {
@@ -1903,7 +1903,7 @@ exports.SubtractCharacterVirtualCurrency = function (request) {
 };
 
 exports.SubtractUserVirtualCurrency = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.SubtractUserVirtualCurrency(request, (err, data) => {
@@ -1920,7 +1920,7 @@ exports.SubtractUserVirtualCurrency = function (request) {
 };
 
 exports.UnlinkPSNAccount = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UnlinkPSNAccount(request, (err, data) => {
@@ -1937,7 +1937,7 @@ exports.UnlinkPSNAccount = function (request) {
 };
 
 exports.UnlinkServerCustomId = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UnlinkServerCustomId(request, (err, data) => {
@@ -1954,7 +1954,7 @@ exports.UnlinkServerCustomId = function (request) {
 };
 
 exports.UnlinkXboxAccount = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UnlinkXboxAccount(request, (err, data) => {
@@ -1971,7 +1971,7 @@ exports.UnlinkXboxAccount = function (request) {
 };
 
 exports.UnlockContainerInstance = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UnlockContainerInstance(request, (err, data) => {
@@ -1988,7 +1988,7 @@ exports.UnlockContainerInstance = function (request) {
 };
 
 exports.UnlockContainerItem = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UnlockContainerItem(request, (err, data) => {
@@ -2005,7 +2005,7 @@ exports.UnlockContainerItem = function (request) {
 };
 
 exports.UpdateAvatarUrl = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdateAvatarUrl(request, (err, data) => {
@@ -2022,7 +2022,7 @@ exports.UpdateAvatarUrl = function (request) {
 };
 
 exports.UpdateBans = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdateBans(request, (err, data) => {
@@ -2039,7 +2039,7 @@ exports.UpdateBans = function (request) {
 };
 
 exports.UpdateCharacterData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdateCharacterData(request, (err, data) => {
@@ -2056,7 +2056,7 @@ exports.UpdateCharacterData = function (request) {
 };
 
 exports.UpdateCharacterInternalData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdateCharacterInternalData(request, (err, data) => {
@@ -2073,7 +2073,7 @@ exports.UpdateCharacterInternalData = function (request) {
 };
 
 exports.UpdateCharacterReadOnlyData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdateCharacterReadOnlyData(request, (err, data) => {
@@ -2090,7 +2090,7 @@ exports.UpdateCharacterReadOnlyData = function (request) {
 };
 
 exports.UpdateCharacterStatistics = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdateCharacterStatistics(request, (err, data) => {
@@ -2107,7 +2107,7 @@ exports.UpdateCharacterStatistics = function (request) {
 };
 
 exports.UpdatePlayerStatistics = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdatePlayerStatistics(request, (err, data) => {
@@ -2124,7 +2124,7 @@ exports.UpdatePlayerStatistics = function (request) {
 };
 
 exports.UpdateUserStatistics = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let Statistics = [];
     for (let key in request.UserStatistics) {
         Statistics.push({
@@ -2149,7 +2149,7 @@ exports.UpdateUserStatistics = function (request) {
 };
 
 exports.UpdateSharedGroupData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdateSharedGroupData(request, (err, data) => {
@@ -2166,7 +2166,7 @@ exports.UpdateSharedGroupData = function (request) {
 };
 
 exports.UpdateUserData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdateUserData(request, (err, data) => {
@@ -2183,7 +2183,7 @@ exports.UpdateUserData = function (request) {
 };
 
 exports.UpdateUserInternalData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdateUserInternalData(request, (err, data) => {
@@ -2200,7 +2200,7 @@ exports.UpdateUserInternalData = function (request) {
 };
 
 exports.UpdateUserInventoryItemCustomData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdateUserInventoryItemCustomData(request, (err, data) => {
@@ -2217,7 +2217,7 @@ exports.UpdateUserInventoryItemCustomData = function (request) {
 };
 
 exports.UpdateUserPublisherData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdateUserPublisherData(request, (err, data) => {
@@ -2234,7 +2234,7 @@ exports.UpdateUserPublisherData = function (request) {
 };
 
 exports.UpdateUserPublisherInternalData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdateUserPublisherInternalData(request, (err, data) => {
@@ -2251,7 +2251,7 @@ exports.UpdateUserPublisherInternalData = function (request) {
 };
 
 exports.UpdateUserPublisherReadOnlyData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdateUserPublisherReadOnlyData(request, (err, data) => {
@@ -2268,7 +2268,7 @@ exports.UpdateUserPublisherReadOnlyData = function (request) {
 };
 
 exports.UpdateUserReadOnlyData = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.UpdateUserReadOnlyData(request, (err, data) => {
@@ -2285,7 +2285,7 @@ exports.UpdateUserReadOnlyData = function (request) {
 };
 
 exports.WriteCharacterEvent = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.WriteCharacterEvent(request, (err, data) => {
@@ -2302,7 +2302,7 @@ exports.WriteCharacterEvent = function (request) {
 };
 
 exports.WritePlayerEvent = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.WritePlayerEvent(request, (err, data) => {
@@ -2319,7 +2319,7 @@ exports.WritePlayerEvent = function (request) {
 };
 
 exports.WriteTitleEvent = function (request) {
-    global.apiRequestCount++;
+    __playfab_internal.apiCallCount++;
     let error = null;
     let response = null;
     server.WriteTitleEvent(request, (err, data) => {
