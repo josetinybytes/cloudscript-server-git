@@ -6,9 +6,9 @@ npm install -g cloudscript-server
 
 then run cloudscript-server in the playfab cloudscript project folder 
 
-this service requires 2 environment variables: 
- TITLE_ID = "your project title id" 
- TITLE_SECRET = "your project developer secret" 
+this service requires 2 environment variables:  
+ TITLE_ID = "your project title id"  
+ TITLE_SECRET = "your project developer secret"  
 
 you can use a .env file in the same cloudscript project folder for setting up the environment variables, if you do this, remember to add the .env file to the .ignore file for your repository to avoid sensitive keys leaking 
 
