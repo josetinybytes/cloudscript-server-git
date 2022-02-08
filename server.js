@@ -14,6 +14,8 @@ const compiler = require('./compiler.js');
 const titleId = process.env['TITLE_ID'];
 const directory = process.argv[3];
 
+let serverEntityTokenExpiration = null;
+
 let cloudscript = null;
 try {
     cloudscript = require('./cloudscript.js');
@@ -23,12 +25,7 @@ catch (e) {
     console.error(e);
     process.exit();
 }
-__convertAndLogTrace = function (data) {
-    let dummy = new Error("dummy");
-    compiler.transformErrorStack(dummy, directory);
-    data.stack = dummy.stack;
-    console.log(data);
-}
+
 async function executeCloudScript(req, res) {
     try {
         currentPlayerId = req.body.PlayFabId ?? req.headers['x-authorization'].split('--')[0];//doing this is faster than validating the ticket with the playfab api :P, it can fail obviously
@@ -106,14 +103,40 @@ app.use('*', async (req, res) => {
     }
 });
 
+async function setupServerEntityToken() {
+    if (serverEntityTokenExpiration != null && Date.now() - serverEntityTokenExpiration > 60 * 60 * 1000) {
+        setTimeout(setupServerEntityToken, 300000);
+        return;
+    }
+    let playfab = require('playfab-sdk');
+    let res = await require('util').promisify(playfab.PlayFabAuthentication.GetEntityToken)({});
+    playfab.settings.entityToken = res.data.EntityToken;
+    serverEntityTokenExpiration = Date.parse(res.data.TokenExpiration);
+    setTimeout(setupServerEntityToken, 300000);
+}
+
 async function startServer() {
     let playfab = require('playfab-sdk');
     playfab.settings.titleId = process.env['TITLE_ID'];
     playfab.settings.developerSecretKey = process.env['TITLE_SECRET'];
-    let res = await require('util').promisify(playfab.PlayFabAuthentication.GetEntityToken)({});
-    playfab.settings.entityToken = res.data.EntityToken;
+    await setupServerEntityToken();
     let port = parseInt(process.argv[2]);
     app.listen(port);
     console.log("server started at port: " + port);
 }
 startServer();
+
+//used by the global playfab log object
+global.__convertAndLogTrace = function (data) {
+    try {
+        let dummy = new Error("dummy");//doing this to get the stack
+        compiler.transformErrorStack(dummy, directory);
+        let stackLines = dummy.stack.split('\n');
+        stackLines.splice(0, 4);
+        data.Stack = stackLines.join('\n');
+        console.log(data);
+    }
+    catch (e) {
+
+    }
+}
