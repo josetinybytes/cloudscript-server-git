@@ -1,0 +1,30 @@
+{
+  "name": "cloudscript-server",
+  "version": "1.0.0",
+  "description": "A local environment for cloudscript development",
+  "main": "monitor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dvillaseca/playfab-cloudscript.git"
+  },
+  "author": "undefined",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/dvillaseca/playfab-cloudscript/issues"
+  },
+  "homepage": "https://github.com/dvillaseca/playfab-cloudscript#readme",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "deasync": "^0.1.24",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "minimist": "^1.2.5",
+    "playfab-sdk": "^2.81.220118"
+  },
+  "bin": {
+    "cloudscript-server": "bin"
+  }
+}
