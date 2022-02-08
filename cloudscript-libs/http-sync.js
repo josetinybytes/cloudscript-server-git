@@ -2,7 +2,7 @@ const axios = require('axios').default;
 const loop = require('deasync').runLoopOnce;
 
 module.exports.request = (url, method, contentBody, contentType, headers) => {
-    global.httpRequestsCount++;
+    global.httpRequestCount++;
     headers = headers ?? {};
     headers['content-type'] = contentType;
     let req = {
