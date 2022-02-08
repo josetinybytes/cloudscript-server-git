@@ -11,6 +11,8 @@ module.exports.compile = (location) => {
 const server = require('./cloudscript-libs/playfab-server-sync.js');
 const http = require('./cloudscript-libs/http-sync.js');
 const entity = require('./cloudscript-libs/playfab-entity-sync.js');
+const economy = require('./cloudscript-libs/playfab-economy-sync.js');
+const multiplayer = require('./cloudscript-libs/playfab-multiplayer-sync.js');
 require('./cloudscript-libs/global-variables.js')
 let handlers = {};`
     for (let file of files) {
@@ -24,7 +26,7 @@ function getOriginalFileLine(originalLine, location) {
     if (isNaN(originalLine))
         return null;
     let files = getFiles(location);
-    let currentLine = originalLine - 6;
+    let currentLine = originalLine - 8;
     for (let file of files) {
         let content = fs.readFileSync(file, 'utf-8');
         let lineCount = content.split('\n').length;

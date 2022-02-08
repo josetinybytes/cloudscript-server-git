@@ -41,7 +41,7 @@ async function executeCloudScript(req, res) {
                 FunctionName: req.body.FunctionName,
                 Revision: 0,
                 FunctionResult: result,
-                APIRequestsIssued: __playfab_internal.apiRequestCount,
+                APIRequestsIssued: __playfab_internal.apiCallCount,
                 HttpRequestsIssued: __playfab_internal.httpRequestCount,
                 ExecutionTimeSeconds: (Date.now() - startTime) * 0.001,
                 Logs: __playfab_internal.logs

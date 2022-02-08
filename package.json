@@ -1,6 +1,6 @@
 {
   "name": "cloudscript-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A local environment for cloudscript development",
   "main": "monitor.js",
   "keywords": [
@@ -9,7 +9,9 @@
     "cloudscript",
     "local",
     "environmet",
-    "legacy"
+    "legacy",
+    "development",
+    "engine"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,7 +20,7 @@
     "type": "git",
     "url": "git+ssh://git@github.com/dvillaseca/cloudscript-server.git"
   },
-  "author": "undefined",
+  "author": "dvillaseca",
   "license": "GPL-2.0-only",
   "bugs": {
     "url": "https://github.com/dvillaseca/cloudscript-server/issues"

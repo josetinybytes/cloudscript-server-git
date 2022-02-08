@@ -1,7 +1,7 @@
 
 const loop = require('deasync').runLoopOnce;
 const playfab = require('playfab-sdk');
-const apiMethods = require('./api-methods.json').entity;
+const apiMethods = require('./api-methods.json').multiplayer;
 const libs = [];
 for (let key in playfab) {
     switch (key) {

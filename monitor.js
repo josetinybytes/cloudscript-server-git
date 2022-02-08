@@ -18,6 +18,8 @@ else if (directory == null) {
 console.log("monitoring: " + directory);
 
 fs.watch(directory, (eventType, filename) => {
+    if (!filename.includes('.js') && !filename.includes('.env'))
+        return;
     if (timeout != null) {
         clearTimeout(timeout);
     }
