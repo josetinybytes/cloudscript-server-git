@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/dvillaseca/playfab-cloudscript.git"
+    "url": "git+ssh://git@github.com/dvillaseca/cloudscript-server.git"
   },
   "author": "undefined",
   "license": "GPL-2.0-only",
   "bugs": {
-    "url": "https://github.com/dvillaseca/playfab-cloudscript/issues"
+    "url": "https://github.com/dvillaseca/cloudscript-server/issues"
   },
-  "homepage": "https://github.com/dvillaseca/playfab-cloudscript#readme",
+  "homepage": "https://github.com/dvillaseca/cloudscript-server#readme",
   "dependencies": {
     "axios": "^0.25.0",
     "deasync": "^0.1.24",
