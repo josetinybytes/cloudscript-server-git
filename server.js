@@ -7,12 +7,22 @@ if (process.env['TITLE_SECRET'] == null) {
     console.log('missing enviroment variable TITLE_SECRET');
     process.exit();
 }
-
 const express = require('express');
 const axios = require('axios').default;
+const compiler = require('./compiler.js');
+
 const titleId = process.env['TITLE_ID'];
-const app = express();
-const cloudscript = require('./cloudscript.js');
+const directory = process.argv[3];
+
+let cloudscript = null;
+try {
+    cloudscript = require('./cloudscript.js');
+}
+catch (e) {
+    compiler.transformErrorStack(e, directory);
+    console.error(e);
+    process.exit();
+}
 
 async function executeCloudScript(req, res) {
     try {
@@ -35,13 +45,19 @@ async function executeCloudScript(req, res) {
         });
     }
     catch (e) {
-        console.trace(e);
-        if (e.code != null) {
-            return res.status(e.code).json(e);
+        compiler.transformErrorStack(e, directory);
+        console.error(e);
+        if (e.data?.code != null) {
+            return res.status(e.data.code).json(e.data);
         }
-        return res.status(500).json({ error: e });
+        if (e.stack != null)
+            return res.status(500).json({ error: 'JavaScriptException', stackTrace: e.stack, code: 500 });
+
+        return res.status(500).json({ error: 'Unknown', code: 500 });
     }
 }
+
+const app = express();
 
 app.use(express.json());
 
