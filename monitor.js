@@ -4,6 +4,7 @@ const compiler = require('./compiler.js');
 const fs = require('fs');
 const { spawn } = require('child_process');
 const path = require('path');
+require('colors');
 let timeout = null;
 let child = null;
 
@@ -15,7 +16,7 @@ else if (directory == null) {
     directory = process.cwd();
 }
 
-console.log("monitoring: " + directory);
+console.log(("Monitoring folder: " + directory + "\n").yellow);
 
 fs.watch(directory, (eventType, filename) => {
     if (!filename.includes('.js') && !filename.includes('.env'))
@@ -35,7 +36,7 @@ process.on('exit', stopServer);
 function stopServer() {
     if (child == null)
         return;
-    console.log("stopping server");
+    console.log("Stopping server".red);
     child.kill('SIGINT');
     child = null;
 }
@@ -48,7 +49,7 @@ function startServer() {
     compiler.compile(directory);
 
     let port = argv.p ?? argv.port ?? 8080;
-    child = spawn('node', [path.join(__dirname, 'server.js'), port, directory], {
+    child = spawn('node', [path.join(__dirname, 'server.js'), port, directory, '--color'], {
         detached: true,
         stdio: 'pipe'
     });

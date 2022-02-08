@@ -44,18 +44,25 @@ module.exports.transformErrorStack = (error, location) => {
     let stack = error.stack;
     let cloudscriptFile = path.join(__dirname, './cloudscript.js');
     let pos = 0;
+    let modified = false;
     while (true) {
         let index = stack.indexOf(cloudscriptFile, pos);
         if (index == -1)
             break;
         pos = index + 1;
         let fileEndIndex = index + cloudscriptFile.length;
-        let lineDefinitionEnd = stack.indexOf(':', fileEndIndex + 1);
+        let nextColon = stack.indexOf(':', fileEndIndex + 1);
+        let nextLine = stack.indexOf('\n', fileEndIndex + 1);
+        let lineDefinitionEnd = Math.min(nextColon == -1 ? 100000000 : nextColon, nextLine == -1 ? 100000000 : nextLine);
         let originalLine = getOriginalFileLine(parseInt(stack.substring(fileEndIndex + 1, lineDefinitionEnd)), location);
         if (originalLine != null) {
             stack = stack.slice(0, index) + originalLine + stack.slice(lineDefinitionEnd);
             pos += originalLine.length;
+            modified = true;
         }
     }
+    //clear every internal file from the stack
+    if (modified)
+        stack = stack.split('\n').filter(line => !line.includes(__dirname) && !line.includes('internal/modules/cjs/')).join('\n');
     error.stack = stack;
 }

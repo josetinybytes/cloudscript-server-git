@@ -1,19 +1,36 @@
 require('dotenv').config();
+require('colors');
 if (process.env['TITLE_ID'] == null) {
-    console.log('missing enviroment variable TITLE_ID');
+    console.log('missing enviroment variable TITLE_ID'.red);
     process.exit();
 }
 if (process.env['TITLE_SECRET'] == null) {
-    console.log('missing enviroment variable TITLE_SECRET');
+    console.log('missing enviroment variable TITLE_SECRET'.red);
     process.exit();
 }
 const express = require('express');
 const axios = require('axios').default;
 const compiler = require('./compiler.js');
+const PrettyError = require('pretty-error');
+const pe = new PrettyError();
+pe.appendStyle({
+    // each trace item ...    
+    'pretty-error': {
+        margin: '0 0 0 1',
+        padding: 0
+    },
+    'pretty-error > trace': {
+        margin: 0,
+        padding: 0
+    },
+    'pretty-error > trace > item': {
+        margin: '0 0 0 2',
+        padding: 0
+    }
+})
 
 const titleId = process.env['TITLE_ID'];
 const directory = process.argv[3];
-
 let serverEntityTokenExpiration = null;
 
 let cloudscript = null;
@@ -50,7 +67,9 @@ async function executeCloudScript(req, res) {
     }
     catch (e) {
         compiler.transformErrorStack(e, directory);
-        console.error(e);
+        if (typeof e.data == 'object')
+            console.error(JSON.stringify(e.data).red);
+        console.error(pe.render(e));
         if (e.data?.code != null) {
             return res.status(e.data.code).json(e.data);
         }
@@ -122,7 +141,7 @@ async function startServer() {
     await setupServerEntityToken();
     let port = parseInt(process.argv[2]);
     app.listen(port);
-    console.log("server started at port: " + port);
+    console.log(("Server started at port: " + port + "\n").green);
 }
 startServer();
 
@@ -134,7 +153,7 @@ global.__convertAndLogTrace = function (data) {
         let stackLines = dummy.stack.split('\n');
         stackLines.splice(0, 4);
         data.Stack = stackLines.join('\n');
-        console.log(data);
+        console.log(JSON.stringify(data).yellow);
     }
     catch (e) {
 
