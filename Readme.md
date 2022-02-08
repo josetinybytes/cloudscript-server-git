@@ -21,6 +21,8 @@ You can also use a **-d** or **--dir** argument to point to your cloudscript pro
 For testing in the editor you have to set in your **PlafabSharedSettings.asset** the **ProductionEnvironmentUrl** to http://127.0.0.1:8080  
 
 ## Disclaimer
-This server should not be used in production, it will not work, the currentPlayerId is setted as a global variable, so if a new request arrive to the server while another request is processing the currentPlayerId will be changed and things will break, in fact, only one user can use this server at a time because of this 
+This server should not be used in production, it will not work, the currentPlayerId is setted as a global variable, so if a new request arrive to the server while another request is processing the currentPlayerId will be changed and things will break, in fact, only one user can use this server at a time because of this.  
+
+Depending of your location and the amount of api request in your handler this server can be really slow due the higher latency between your location and the playfab servers (currently Oregon).  
 
 This package is arriving a litte late, it should have been done by Playfab ages ago, but better late than never...
