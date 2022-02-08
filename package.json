@@ -1,8 +1,16 @@
 {
   "name": "cloudscript-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A local environment for cloudscript development",
   "main": "monitor.js",
+  "keywords": [
+    "server",
+    "playfab",
+    "cloudscript",
+    "local",
+    "environmet",
+    "legacy"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
