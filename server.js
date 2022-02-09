@@ -1,11 +1,11 @@
 require('dotenv').config();
 require('colors');
 if (process.env['TITLE_ID'] == null) {
-    console.log('missing enviroment variable TITLE_ID'.red);
+    console.log('missing environment variable TITLE_ID'.red);
     process.exit();
 }
 if (process.env['TITLE_SECRET'] == null) {
-    console.log('missing enviroment variable TITLE_SECRET'.red);
+    console.log('missing environment variable TITLE_SECRET'.red);
     process.exit();
 }
 const express = require('express');
