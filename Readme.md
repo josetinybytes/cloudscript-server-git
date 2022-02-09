@@ -1,5 +1,8 @@
 # Playfab CloudScript Server
+A command line program for running your cloudscript code locally  
 
+Has stack traces for Javascript and API errors  
+Listens to file changes and restarts the server to reflect the latest changes
 ## Usage
 
 First install the package:  
