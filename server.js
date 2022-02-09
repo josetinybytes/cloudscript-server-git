@@ -42,28 +42,21 @@ catch (e) {
     console.error(e);
     process.exit();
 }
-
 async function executeCloudScript(req, res) {
+    let startTime = Date.now();
     try {
         currentPlayerId = req.body.PlayFabId ?? req.headers['x-authorization'].split('--')[0];//doing this is faster than validating the ticket with the playfab api :P, it can fail obviously
         __playfab_internal.apiRequestCount = 0;
         __playfab_internal.httpRequestCount = 0;
         __playfab_internal.logs = [];
-        let startTime = Date.now();
-        let result = cloudscript[req.body.FunctionName](req.body.FunctionParameter);
-        return res.json({
-            code: 200,
-            status: 'OK',
-            data: {
-                FunctionName: req.body.FunctionName,
-                Revision: 0,
-                FunctionResult: result,
-                APIRequestsIssued: __playfab_internal.apiCallCount,
-                HttpRequestsIssued: __playfab_internal.httpRequestCount,
-                ExecutionTimeSeconds: (Date.now() - startTime) * 0.001,
-                Logs: __playfab_internal.logs
-            }
-        });
+
+        if (cloudscript[req.body.FunctionName] == null)
+            return res.json(generateResponse(200, 'OK', req.body.FunctionName, null, (Date.now() - startTime) * 0.001, {
+                Error: "CloudScriptNotFound", Message: `No function named ${req.body.FunctionName} was found to execute`, StackTrace: ""
+            }));
+
+        let result = cloudscript[req.body.FunctionName](req.body.FunctionParameter, { playerProfile: null, playStreamEvent: null, triggeredByTask: null });
+        return res.json(generateResponse(200, 'OK', req.body.FunctionName, result, (Date.now() - startTime) * 0.001));
     }
     catch (e) {
         compiler.transformErrorStack(e, directory);
@@ -73,13 +66,30 @@ async function executeCloudScript(req, res) {
         if (e.data?.code != null) {
             return res.status(e.data.code).json(e.data);
         }
-        if (e.stack != null)
-            return res.status(500).json({ error: 'JavaScriptException', stackTrace: e.stack, code: 500 });
-
+        if (e.stack != null) {
+            return res.json(generateResponse(200, 'OK', req.body.FunctionName, null, (Date.now() - startTime) * 0.001, {
+                Error: "JavascriptException", Message: "JavascriptException", StackTrace: e.stack
+            }));
+        }
         return res.status(500).json({ error: 'Unknown', code: 500 });
     }
 }
-
+function generateResponse(code, status, FunctionName, FunctionResult, ExecutionTimeSeconds, Error) {
+    return {
+        code,
+        status,
+        data: {
+            FunctionName,
+            Revision: 0,
+            FunctionResult,
+            APIRequestsIssued: __playfab_internal.apiCallCount,
+            HttpRequestsIssued: __playfab_internal.httpRequestCount,
+            ExecutionTimeSeconds,
+            Logs: __playfab_internal.logs,
+            Error
+        }
+    };
+}
 const app = express();
 
 app.use(express.json());
