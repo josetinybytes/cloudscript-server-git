@@ -2,6 +2,7 @@
 const loop = require('deasync').runLoopOnce;
 const playfab = require('playfab-sdk');
 const apiMethods = require('./api-methods.json').entity;
+const PlayFabApiError = require('./playfab-api-error');
 const libs = [];
 for (let key in playfab) {
     switch (key) {
@@ -17,12 +18,6 @@ for (let key in playfab) {
     libs.push(playfab[key]);
 }
 
-class PlayFabApiError extends Error {
-    constructor(message, data) {
-        super(message);
-        this.data = data;
-    }
-}
 function callApiMethod(request, lib, method) {
     __playfab_internal.apiCallCount++;
     let error = null;

@@ -2,13 +2,8 @@
 const loop = require('deasync').runLoopOnce;
 const PlayFab = require('playfab-sdk').PlayFab;
 const apiMethods = require('./api-methods.json').server;
+const PlayFabApiError = require('./playfab-api-error');
 
-class PlayFabApiError extends Error {
-    constructor(message, data) {
-        super(message);
-        this.data = data;
-    }
-}
 function callApiMethod(request, method) {
     __playfab_internal.apiCallCount++;
     let error = null;
