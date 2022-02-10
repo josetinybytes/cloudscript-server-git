@@ -19,7 +19,8 @@ else if (directory == null) {
 console.log(("Monitoring folder: " + directory + "\n").yellow);
 
 fs.watch(directory, (eventType, filename) => {
-    if (!filename.includes('.js') && !filename.includes('.env'))
+    let extension = path.extname(filename);
+    if (extension != '.js' && extension != '.ts' && !filename.includes('.env'))
         return;
     if (timeout != null) {
         clearTimeout(timeout);
@@ -49,7 +50,7 @@ function startServer() {
     compiler.compile(directory);
 
     let port = argv.p ?? argv.port ?? 8080;
-    child = spawn('node', [path.join(__dirname, 'server.js'), port, directory, '--color'], {
+    child = spawn(process.execPath, [path.join(__dirname, 'server.js'), port, directory, '--color'], {
         detached: true,
         stdio: 'pipe'
     });
