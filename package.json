@@ -1,6 +1,6 @@
 {
   "name": "cloudscript-server",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A local environment for cloudscript development",
   "main": "monitor.js",
   "keywords": [
