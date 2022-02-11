@@ -169,3 +169,18 @@ global.__convertAndLogTrace = function (data) {
 
     }
 }
+
+
+//listening if monitor is still controlling the process, if not, exit
+function listenMonitor() {
+    let exitTimeout = null;
+    function exitProgram() {
+        process.exit();
+    }
+    process.stdin.on('data', (data) => {
+        if (exitTimeout != null)
+            clearTimeout(exitTimeout);
+        exitTimeout = setTimeout(exitProgram, 15000);
+    });
+}
+listenMonitor();

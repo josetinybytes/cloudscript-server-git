@@ -57,4 +57,10 @@ function startServer() {
     child.stdout.pipe(process.stdout);
     child.stderr.pipe(process.stderr);
 }
+function keepAliveChild() {
+    if (child == null)
+        return;
+    child.stdin.write('1', (err) => { });
+}
 startServer();
+setInterval(keepAliveChild, 5000);
