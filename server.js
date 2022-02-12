@@ -1,5 +1,12 @@
-require('dotenv').config();
+
 require('colors');
+const express = require('express');
+const axios = require('axios').default;
+const compiler = require('./compiler.js');
+
+const directory = process.argv[3];
+require('dotenv').config({ path: require('path').join(directory, './.env') });
+
 if (process.env['TITLE_ID'] == null) {
     console.log('missing environment variable TITLE_ID'.red);
     process.exit();
@@ -8,29 +15,8 @@ if (process.env['TITLE_SECRET'] == null) {
     console.log('missing environment variable TITLE_SECRET'.red);
     process.exit();
 }
-const express = require('express');
-const axios = require('axios').default;
-const compiler = require('./compiler.js');
-const PrettyError = require('pretty-error');
-const pe = new PrettyError();
-pe.appendStyle({
-    // each trace item ...    
-    'pretty-error': {
-        margin: '0 0 0 1',
-        padding: 0
-    },
-    'pretty-error > trace': {
-        margin: 0,
-        padding: 0
-    },
-    'pretty-error > trace > item': {
-        margin: '0 0 0 2',
-        padding: 0
-    }
-})
 
 const titleId = process.env['TITLE_ID'];
-const directory = process.argv[3];
 let serverEntityTokenExpiration = null;
 
 let cloudscript = null;
@@ -39,7 +25,7 @@ try {
 }
 catch (e) {
     compiler.transformErrorStack(e, directory);
-    console.error(e);
+    logError(e);
     process.exit();
 }
 async function executeCloudScript(req, res) {
@@ -60,9 +46,7 @@ async function executeCloudScript(req, res) {
     }
     catch (e) {
         compiler.transformErrorStack(e, directory);
-        if (typeof e.data == 'object')
-            console.error(JSON.stringify(e.data).red);
-        console.error(pe.render(e));
+        logError(e);
         if (e.data?.code != null) {
             return res.status(e.data.code).json(e.data);
         }
@@ -169,8 +153,17 @@ global.__convertAndLogTrace = function (data) {
 
     }
 }
-
-
+//custom colored error
+function logError(e) {
+    if (e.stack == null) {
+        console.error(e);
+    }
+    else {
+        if (typeof e.data == 'object')
+            console.error(JSON.stringify(e.data).red);
+        console.log(e.stack.red);
+    }
+}
 //listening if monitor is still controlling the process, if not, exit
 function listenMonitor() {
     let exitTimeout = null;
