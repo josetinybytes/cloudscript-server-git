@@ -15,7 +15,10 @@ if (directory != null && !path.isAbsolute(directory)) {
 else if (directory == null) {
     directory = process.cwd();
 }
-
+if (argv._.includes('typings')) {
+    require('./types-generator.js')(directory);
+    process.exit();
+}
 console.log(("Monitoring folder: " + directory + "\n").yellow);
 
 fs.watch(directory, (eventType, filename) => {
