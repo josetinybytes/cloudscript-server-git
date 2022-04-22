@@ -1,8 +1,9 @@
 const fs = require('fs');
 const path = require('path');
+const UglifyJS = require("uglify-js");
 function getFiles(location) {
     return fs.readdirSync(location)
-        .filter(file => file.indexOf('.') != 0 && file.includes('.js'))
+        .filter(file => file.indexOf('.') != 0 && file.includes('.js') && !file.includes('.json'))
         .map(file => path.join(location, file));
 }
 module.exports.compile = (location) => {
@@ -21,6 +22,18 @@ let handlers = {};`
     }
     outFile += 'module.exports = handlers;\n';
     fs.writeFileSync(path.join(__dirname, './cloudscript.js'), outFile);
+}
+module.exports.compileRelease = (location) => {
+    let files = getFiles(location);
+    let outFile = "";
+    for (let file of files) {
+        outFile += fs.readFileSync(file, 'utf-8');
+        outFile += '\n';
+    }
+    let minified = UglifyJS.minify(outFile, { compress: true });
+    if (minified.error)
+        throw new Error(minified.error);
+    return minified.code;
 }
 function getOriginalFileLine(originalLine, location) {
     if (isNaN(originalLine))

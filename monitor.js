@@ -7,35 +7,7 @@ const path = require('path');
 require('colors');
 let timeout = null;
 let child = null;
-
-let directory = argv.dir ?? argv.d;
-if (directory != null && !path.isAbsolute(directory)) {
-    directory = path.join(process.cwd(), directory);
-}
-else if (directory == null) {
-    directory = process.cwd();
-}
-if (argv._.includes('typings')) {
-    require('./types-generator.js')(directory);
-    process.exit();
-}
-console.log(("Monitoring folder: " + directory + "\n").yellow);
-
-fs.watch(directory, (eventType, filename) => {
-    let extension = path.extname(filename);
-    if (extension != '.js' && extension != '.ts' && !filename.includes('.env'))
-        return;
-    if (timeout != null) {
-        clearTimeout(timeout);
-    }
-    timeout = setTimeout(startServer, 500);
-});
-
-process.on('SIGINT', () => {
-    stopServer();
-    process.exit();
-});
-process.on('exit', stopServer);
+let directory = null;
 
 function stopServer() {
     if (child == null)
@@ -44,7 +16,6 @@ function stopServer() {
     child.kill('SIGINT');
     child = null;
 }
-
 function startServer() {
     timeout = null;
 
@@ -65,5 +36,41 @@ function keepAliveChild() {
         return;
     child.stdin.write('1', (err) => { });
 }
-startServer();
-setInterval(keepAliveChild, 5000);
+async function main() {
+    directory = argv.dir ?? argv.d;
+    if (directory != null && !path.isAbsolute(directory)) {
+        directory = path.join(process.cwd(), directory);
+    }
+    else if (directory == null) {
+        directory = process.cwd();
+    }
+    if (argv._.includes('typings')) {
+        require('./types-generator.js')(directory);
+        return;
+    }
+    if (argv._.includes('publish')) {
+        await require('./publisher.js')(directory);
+        return;
+    }
+
+    console.log(("Monitoring folder: " + directory + "\n").yellow);
+
+    fs.watch(directory, (eventType, filename) => {
+        let extension = path.extname(filename);
+        if (extension != '.js' && extension != '.ts' && !filename.includes('.env'))
+            return;
+        if (timeout != null) {
+            clearTimeout(timeout);
+        }
+        timeout = setTimeout(startServer, 500);
+    });
+
+    process.on('SIGINT', () => {
+        stopServer();
+        process.exit();
+    });
+    process.on('exit', stopServer);
+    startServer();
+    setInterval(keepAliveChild, 5000);
+}
+main();
