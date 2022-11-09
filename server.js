@@ -31,7 +31,7 @@ catch (e) {
 async function executeCloudScript(req, res) {
     let startTime = Date.now();
     try {
-        currentPlayerId = req.body.PlayFabId ?? req.headers['x-authorization'].split('--')[0];//doing this is faster than validating the ticket with the playfab api :P, it can fail obviously
+        currentPlayerId = req.body.PlayFabId ?? req.headers['x-authorization'].split('-')[0];//doing this is faster than validating the ticket with the playfab api :P, it can fail obviously
         __playfab_internal.apiRequestCount = 0;
         __playfab_internal.httpRequestCount = 0;
         __playfab_internal.logs = [];
