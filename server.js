@@ -31,7 +31,7 @@ catch (e) {
 async function executeCloudScript(req, res) {
     let startTime = Date.now();
     try {
-        currentPlayerId = req.body.PlayFabId ?? req.headers['x-authorization'].split('-')[0];//doing this is faster than validating the ticket with the playfab api :P, it can fail obviously
+        currentPlayerId = req.body.PlayFabId ?? extractPlayfabidFromToken(req.headers['x-authorization']);//doing this is faster than validating the ticket with the playfab api :P, it can fail obviously
         __playfab_internal.apiRequestCount = 0;
         __playfab_internal.httpRequestCount = 0;
         __playfab_internal.logs = [];
@@ -73,6 +73,15 @@ function generateResponse(code, status, FunctionName, FunctionResult, ExecutionT
             Error
         }
     };
+}
+function extractPlayfabidFromToken(token) {
+    let parts = token.split('-');
+    if (parts.length > 1)
+        return parts[0];
+    let fromBase64 = Buffer.from(token, 'base64').toString('ascii');
+    parts = fromBase64.split('|');
+    var payload = JSON.parse(parts[2]);
+    return payload.ec.split('/')[2];
 }
 const app = express();
 
